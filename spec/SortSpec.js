@@ -16,4 +16,8 @@ describe("Merge sort", function(){
 	it("should not sort two numbers already in order", function(){
 		expect(sorter.sort([0,1])).toEqual([0,1]);
 	});
+
+	it("should sort any three numbers", function(){
+		expect(sorter.sort([1,0,2])).toEqual([0,1,2]);
+	});
 });
