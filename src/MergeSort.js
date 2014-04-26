@@ -3,7 +3,7 @@ var MergeSort = function(){
 };
 
 MergeSort.prototype.sort = function(list) {
-	if(!list || 1 >= list.length){
+	if(!list || list.length <= 1){
 		return list;
 	} else if(2 == list.length){
 		if(list[0] > list[1]){
@@ -14,16 +14,10 @@ MergeSort.prototype.sort = function(list) {
 		var firstHalf = [], secondHalf = [], result = [],
 			i = 0;
 
-		while(i < list.length / 2){
-			firstHalf.push(list[i]);
-			i++;
-		}
+		i = this.addFirstHalf(firstHalf, list, i);
 		firstHalf = this.sort(firstHalf);
 
-		while(i< list.length){
-			secondHalf.push(list[i]);
-			i++;	
-		}
+		this.addSecondHalf(secondHalf, list, i);
 		secondHalf = this.sort(secondHalf);
 
 		this.merge(result, firstHalf, secondHalf);
@@ -61,5 +55,20 @@ MergeSort.prototype.addAllFrom = function(result, list, from) {
 	while(i< list.length){
 		result.push(list[i]);
 		i++;
+	}
+};
+
+MergeSort.prototype.addFirstHalf = function(result, list, i) {
+	while(i < list.length / 2){
+		result.push(list[i]);
+		i++;
+	}
+	return i;
+};
+
+MergeSort.prototype.addSecondHalf = function(result, list, i) {
+	while(i< list.length){
+		result.push(list[i]);
+		i++;	
 	}
 };
