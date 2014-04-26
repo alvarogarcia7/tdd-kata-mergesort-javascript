@@ -20,4 +20,8 @@ describe("Merge sort", function(){
 	it("should sort any three numbers", function(){
 		expect(sorter.sort([1,0,2])).toEqual([0,1,2]);
 	});
+
+	it("should sort any three numbers (2)", function(){
+		expect(sorter.sort([0,10,9])).toEqual([0,9,10]);
+	});
 });
