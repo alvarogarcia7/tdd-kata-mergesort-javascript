@@ -11,13 +11,19 @@ MergeSort.prototype.sort = function(list) {
 		}
 		return list;
 	} else  {
-		var firstHalf = [], secondHalf = [], result = [];
+		var firstHalf = [], secondHalf = [], result = [],
+			i = 0;
 
-		firstHalf.push(list[0]);
-		firstHalf.push(list[1]);
+		while(i < list.length / 2){
+			firstHalf.push(list[i]);
+			i++;
+		}
 		firstHalf = this.sort(firstHalf);
 
-		secondHalf.push(list[2]);
+		while(i< list.length){
+			secondHalf.push(list[i]);
+			i++;	
+		}
 		secondHalf = this.sort(secondHalf);
 
 		this.merge(result, firstHalf, secondHalf);
