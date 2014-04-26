@@ -3,7 +3,7 @@ var MergeSort = function(){
 };
 
 MergeSort.prototype.sort = function(list) {
-	if(1 == list.length){
+	if(!list || 1 >= list.length){
 		return list;
 	} else if(2 == list.length){
 		if(list[0] > list[1]){
