@@ -4,7 +4,10 @@ var MergeSort = function(){
 
 MergeSort.prototype.sort = function(list) {
 	if(2 == list.length){
-		return this.swap(list, 0, 1);
+		if(list[0] > list[1]){
+			return this.swap(list, 0, 1);
+		}
+		return list;
 	}
 };
 
