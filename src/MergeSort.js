@@ -44,6 +44,10 @@ MergeSort.prototype.merge = function(result, firstHalf, secondHalf) {
 		}
 	}
 	if(i != firstHalf.length || j != secondHalf.length){
+		while(i< firstHalf.length){
+			result.push(firstHalf[i]);
+			i++;
+		}
 		while(j< secondHalf.length){
 			result.push(secondHalf[j]);
 			j++;
