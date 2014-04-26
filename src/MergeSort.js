@@ -44,14 +44,16 @@ MergeSort.prototype.merge = function(result, firstHalf, secondHalf) {
 		}
 	}
 	if(i != firstHalf.length || j != secondHalf.length){
-		while(i< firstHalf.length){
-			result.push(firstHalf[i]);
-			i++;
-		}
-		while(j< secondHalf.length){
-			result.push(secondHalf[j]);
-			j++;
-		}
+		this.addAllFrom(result, firstHalf, i);
+		this.addAllFrom(result, secondHalf, j);
 	}
 	return result;
+};
+
+MergeSort.prototype.addAllFrom = function(result, list, from) {
+	var i = from;
+	while(i< list.length){
+		result.push(list[i]);
+		i++;
+	}
 };
